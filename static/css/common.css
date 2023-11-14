@@ -1,0 +1,234 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+html {
+	font-size:62.5%;
+	overflow-y:scroll;
+}
+html, body {
+	width:100%;
+	height:100%;
+}
+body {
+	font-family:'Verdana', 'malgun gothic';
+	font-size:1.4rem;
+	color:#000;
+	line-height:1;
+	letter-spacing:-0.06em;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size:100%;
+	font-weight:normal;
+	margin:0;
+}
+a {
+	color:inherit;
+	text-decoration:none;
+}
+a:hover, a:active {
+	color:inherit;
+	text-decoration:none;
+}
+table {
+	width:100%;
+	table-layout:fixed;
+	word-break:break-all;
+	border-collapse:collapse;
+	border-spacing:0;
+}
+img {
+	max-width: 100%;
+}
+img, fieldset, hr {
+	border:none;
+}
+ul, li, ol {
+	list-style:none;
+	margin:0;
+}
+address, em {
+	font-style:normal;
+}
+img, video, canvas {
+	height:auto;
+}
+legend, caption {
+	display:none;
+}
+input, select, textarea, button {
+	outline:none;
+	-webkit-appearance:none;
+	-webkit-border-radius:0;
+}
+button {
+	background:none;
+}
+select {
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	background-image:url(../../images/prod/select.png);
+	background-position:92% center;
+	background-repeat:no-repeat;
+	background-size:10px;
+	font-size:11px;
+	color:#888888;
+	height:30px;
+	border:1px solid #dcdcdc;
+	border-radius:2px;
+	padding:0 30px 0 10px;
+	cursor:pointer;
+}
+select::-ms-expand {
+	display:none;
+}
+.textAL {
+	text-align:left !important;
+}
+.textAC {
+	text-align:center !important;
+}
+.textAR {
+	text-align:right !important;
+}
+.textCut {
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	overflow:hidden;
+}
+.clearfix:after {
+	clear:both;
+	content:'';
+	display:block;
+}
+.hide {
+	display:none !important;
+}
+.objectFit img {
+	object-fit:cover;
+	width:100%;
+	height:100%;
+}
+.objectFitIE {
+	background-size:cover;
+	background-position:center center;
+}
+.objectFitIE img {
+	opacity:0;
+}
+/* checkbox */
+div.chk input[type="checkbox"] {
+	display:none;
+}
+div.chk input[type="checkbox"] + label {
+	cursor:pointer;
+	font-weight:bold;
+	font-size:13px;
+}
+div.chk input[type="checkbox"] + label span:not(.commonCnt) {
+	background:#fff;
+	display:inline-block;
+	width:20px;
+	height:20px;
+	border:1px solid #acacac;
+	border-radius:2px;
+	vertical-align:middle;
+	cursor:pointer;
+	margin-right:5px;
+}
+div.chk input[type="checkbox"] + label span.no_txt {
+	margin-right:0;
+}
+div.chk input[type="checkbox"]:checked + label span:not(.commonCnt) {
+	background:#fff url(../../images/prod/check.png) no-repeat center center;
+	background-size:11px;
+	cursor:pointer;
+	border:1px solid #00a885 
+}
+/* radio */
+.radio input[type="radio"] {
+	display:none 
+}
+.radio ul li {
+	color:#666;
+	font-size:13px;
+	letter-spacing:-0.05em;
+}
+.radio ul li label {
+	margin-right:7px;
+	cursor:pointer;
+}
+.radio input[type="radio"] + label span {
+	display:inline-block;
+	width:20px;
+	height:20px;
+	border:1px solid #cccccc;
+	border-radius:3px;
+	vertical-align:middle;
+	cursor:pointer;
+	border-radius:100%;
+	position:relative;
+	vertical-align:-5px;
+}
+.radio input[type="radio"]:checked + label span {
+	position:relative;
+   /* background:url(/images/user/order/checked.png) no-repeat center center;
+	background-size:8px */
+}
+.radio input[type="radio"]:checked + label span:after {
+	content:'';
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	width:8px;
+	height:8px;
+	background:#00a885;
+	border-radius:100%;
+}
+.layout {
+	position:relative;
+	max-width:1100px;
+	margin:0 auto;
+}
+
+
+/* Common header */
+.Menubar {
+	position: relative;
+	width: 100%;
+	height: 60px;
+	display: flex;
+	border-bottom: 3px solid #2dae8a;
+}
+.Menubar__logo {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 20px;
+	font-size: 16px;
+	background: #2dae8a;
+	color: #fff;
+}
+.Menubar__list {
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+}
+.Menubar__list * {
+	height: 100%;
+}
+.Menubar__list__item__link {
+	display: flex;
+	align-items: center;
+	padding: 0 6px;
+	font-size: 16px;
+}
+
+
+.card {
+	border: 3px solid #000;
+	margin-bottom: 50px;
+}

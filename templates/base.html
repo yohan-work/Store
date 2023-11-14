@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+	<meta name="generator" content="Hugo 0.101.0">
+	<title>onlinestore</title>
+	<link rel="stylesheet" href="/static/css/common.css">
+	<link rel="stylesheet" href="/static/css/layout.css">
+
+</head>
+<body>
+	<div class="Menubar">
+		<a href="/" class="Menubar__logo">
+			Yohan's Store
+		</a>
+		<ul class="Menubar__list clearfix">
+			<li class="Menubar__list__item">
+				<a class="Menubar__list__item__link" aria-current="page" href="/products/list">상품리스트</a>
+			</li>
+			{% if session.get('is_admin') %}
+			<li class="Menubar__list__item">
+				<a class="Menubar__list__item__link" href="/products/form">상품등록</a>
+			</li>
+			{% endif %}
+			<li class="Menubar__list__item">
+				<a class="Menubar__list__item__link" href="/orders/list">주문목록</a>
+			</li>
+			<li class="Menubar__list__item">
+				<a class="Menubar__list__item__link" href="/users/form">회원가입</a>
+			</li>
+			{% if session.get('user_id') %}
+			<li class="Menubar__list__item">
+				<a class="Menubar__list__item__link" href="/users/signout">로그아웃 {{session['user_id']}}</a>
+			</li>
+			{% else %}
+			<li class="Menubar__list__item">
+				<a class="Menubar__list__item__link" href="/users/signin">로그인</a>
+			</li>
+			{% endif %}
+		</ul>
+	</div>
+
+
+	<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container">
+			<a class="navbar-brand" href="/">Yohan's Store</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link" aria-current="page" href="/products/list">상품리스트</a>
+					</li>
+					{% if session.get('is_admin') %}
+					<li class="nav-item">
+						<a class="nav-link" href="/products/form">상품등록</a>
+					</li>
+					{% endif %}
+					<li class="nav-item">
+						<a class="nav-link" href="/orders/list">주문목록</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/users/form">회원가입</a>
+					</li>
+					{% if session.get('user_id') %}
+					<li class="nav-item">
+						<a class="nav-link" href="/users/signout">로그아웃 {{session['user_id']}}</a>
+					</li>
+					{% else %}
+					<li class="nav-item">
+						<a class="nav-link" href="/users/signin">로그인</a>
+					</li>
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</nav> -->
+	{% block content %}{% endblock %}
+</body>
+</html>

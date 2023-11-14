@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8">
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="{{product['thumbnail_img']}}" class="img-fluid rounded-start" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">{{product['name']}}</h5>
+							<hr>
+							<p class="card-text">{{product['description']}}</p>
+							<hr>
+							<div class="d-flex flex-row-reverse bd-highlight align-items-center">
+								<div class="p-2 bd-highlight">
+									<a href="/products/{{product['_id']}}/order" class="btn btn-outline-primary">구매하기</a>
+								</div>
+								<div class="p-2 bd-highlight">
+									<p class="card-text text-end">{{product['price']}} 원</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card">
+				<img src="{{product['detail_img']}}" class="card-img-top" alt="...">
+			</div>
+		</div>
+		<div class="col-2"></div>
+	</div>
+	
+</div>
+{% endblock %}
+
+
+
+

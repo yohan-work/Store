@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col col-4"></div>
+			<div class="col col-4">
+				<div>
+					<hr>
+					<h3 class="pt-2 text-center pb-2">상품 등록</h3>
+					<hr>
+				</div>
+				<form action="/products/regist" method="post" enctype="multipart/form-data">
+					<div class="mb-3">
+						<label for="name" class="form-label">Product Name</label>
+						<input type="text" class="form-control" id="name" name="name">
+					</div>
+					<div class="mb-3">
+						<label for="price" class="form-label">Product Price</label>
+						<input type="text" class="form-control" id="price" name="price">
+					</div>
+					<div class="mb-3">
+						<label for="description" class="form-label">Product Description</label>
+						<textarea class="form-control" id="description" name="description"></textarea>
+					</div>
+					<div class="mb-3">
+						<label for="thumbnail_img" class="form-label">Product Thumbnail_Img</label>
+						<input type="file" class="form-control" id="thumbnail_img" name="thumbnail_img">
+					</div>
+					<div class="mb-3">
+						<label for="detail_img" class="form-label">Product Detail_Img</label>
+						<input type="file" class="form-control" id="detail_img" name="detail_img">
+					</div>
+					<button type="submit" class="btn btn-primary w-100">Regist</button>
+				</form>
+			</div>
+			<div class="col col-4"></div>
+		</div>
+	</div>
+{% endblock %}

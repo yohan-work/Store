@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		<script>
+			alert('{{messages[-1]}}')
+		</script>
+	{% endif %}
+{% endwith %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col col-4"></div>
+			<div class="col col-4">
+				<div>
+					<hr>
+					<h3 class="pt-2 text-center pb-2">회원가입</h3>
+					<hr>
+				</div>
+				<form action="/users/signup" method="post" enctype="multipart/form-data">
+					<div class="mb-3">
+						<label for="email" class="form-label" >Email</label>
+						<input type="email" class="form-control" id="email" name="email" required>
+					</div>
+					<div class="mb-3">
+						<label for="password" class="form-label" >Password</label>
+						<input type="password" class="form-control" id="password" name="password" required>
+					</div>
+					<div class="mb-3">
+						<label for="password_confirmation" class="form-label" >Password Confirm</label>
+						<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" required>
+					</div>
+					<button type="submit" class="btn btn-primary w-100">Sign Up</button>
+				</form>
+			</div>
+			<div class="col col-4"></div>
+		</div>
+	</div>
+{% endblock %}

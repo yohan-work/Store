@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col-2"></div>
+		<div class="col-8">
+			<hr>
+			<h2 class="text-center">완료된 주문 상세 페이지</h2>
+			<hr>
+			<div class="card mb-3">
+				<div class="row g-0">
+					<div class="col-md-4">
+						<img src="{{order['product']['thumbnail_img']}}" class="img-fluid rounded-start" alt="...">
+					</div>
+					<div class="col-md-8">
+						<div class="card-body">
+							<h5 class="card-title">{{order['product']['name']}}</h5>
+							<hr>
+							<p class="card-text">{{order['product']['description']}}</p>
+							<hr>
+							<div class="d-flex flex-row-reverse bd-highlight align-items-center">
+								<div class="p-2 bd-highlight">
+									<p class="card-text text-end">{{order['product']['price']}} 원</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card" >
+				<div class="card-header">
+					배송지 / 주문자 정보
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">우편번호 : {{order['postcode']}}</li>
+					<li class="list-group-item">주소 : {{order['address']}}</li>
+					<li class="list-group-item">상세주소 : {{order['detail_address']}} {{order['extra_address']}}</li>
+					<li class="list-group-item">주문자 : {{order['user_name']}}</li>
+					<li class="list-group-item">연락처 : {{order['user_phone']}}</li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-2"></div>
+	</div>
+	
+</div>
+{% endblock %}
+
+
+
+

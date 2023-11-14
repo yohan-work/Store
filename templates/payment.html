@@ -1,0 +1,56 @@
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+	<!-- iamport.payment.js -->
+	<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+			var IMP = window.IMP; // 생략 가능
+			IMP.init("imp---------"); // 예: imp00000000
+			requestPay();
+		});
+
+		function requestPay() {
+		// IMP.request_pay(param, callback) 결제창 호출
+			IMP.request_pay({ // param
+				pg: "danal_tpay",
+				pay_method: "card",
+				merchant_uid: "{{order._id}}",
+				name: "{{order.product.name}}",
+				amount: "{{order.product.price}}",
+				buyer_email: "{{order.user.email}}",
+				buyer_name: "{{order.user_name}}",
+				buyer_tel: "{{order.user_phone}}",
+			}, function (rsp) { // callback
+				if (rsp.success) {
+					console.log('결제 성공');
+					const data = {
+						imp_uid: rsp.imp_uid,
+						merchant_uid: rsp.merchant_uid
+					}
+					jQuery.ajax({
+						url: "/payments/complete", // 예: https://www.myservice.com/payments/complete
+						method: "POST",
+						headers: { "Content-Type": "application/json" },
+						data: JSON.stringify(data)
+					}).done(function (data) {
+					// 가맹점 서버 결제 API 성공시 로직
+						if (data.message === 'success') {
+							const order_id = data.order_id
+							location.href = `/payments/success?order_id=${order_id}`
+							// location.href = "/payments/success?order_id=" + order_id;
+						}
+						else {
+							alert(data.message);
+							location.href = `/products/list`
+						}
+					})
+				} else {
+					console.log('결제 실패 :' + rsp.error_msg);
+					alert('결제에 실패하였습니다.');
+					location.href = `/products/list`
+				}
+			});
+		}
+
+	</script>

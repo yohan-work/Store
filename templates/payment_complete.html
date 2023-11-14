@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+	<div class="container">
+		<div class="row">
+			<div class="col col-4"></div>
+			<div class="col col-4">
+				<div>
+					<hr>
+					<h3 class="pt-2 text-center pb-2">주문 성공</h3>
+					<hr>
+				</div>
+				<p class="text-center">주문이 성공적으로 완료되었습니다.</p>
+				<div class="d-flex justify-content-center">
+					<a href="/orders/{{order_id}}" class="btn btn-outline-primary">주문 결과 확인</a>
+				</div>
+			</div>
+			<div class="col col-4"></div>
+		</div>
+	</div>
+{% endblock %}
